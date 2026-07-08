@@ -38,6 +38,49 @@ def berechne_durchschnittliche_dichte(proben):
     return mittlere_dichte
 
 
+def bubble_sort(proben):
+
+    anzahl_tausch = 0
+
+    # outer loop
+    for _ in range(len(proben)):
+
+        # Change required?
+        change_required = False
+
+        # inner loop
+        for index, probe in enumerate(proben):
+
+            # Skip last entry
+            if index < (len(proben) - 2):
+
+                density_0 = proben[index][2]
+                density_1 = proben[index+1][2]
+
+                if density_0 < density_1:
+
+                    proben[index], proben[index+1] = proben[index+1], proben[index]
+
+                    change_required = True
+
+                    anzahl_tausch += 1
+        
+        if change_required == False:
+
+            break
+
+    print(f"Bubble Sort abgeschlossen nach {anzahl_tausch} Vertauschungen")
+
+    return proben
+
+
+def ausgabe_proben(proben):
+
+    for index, probe in enumerate(proben):
+
+        print(f"Probe {index+1}: ID = {probe[0]}, Name = {probe[1]}, Dichte = {probe[2]}, Tiefe = {probe[3]}")
+
+
 def main():
     print("Willkommen zum Dichteanalyse-Programm!")
     # Schritt 1: Dateninitialisierung
@@ -51,8 +94,10 @@ def main():
     print(f"Die mittlere Dichte beträgt {mittlere_dicte:.2f} kg/m3")
 
     # Schritt 3: Bubble Sort anwenden
+    liste_mit_proben_sortiert = bubble_sort(liste_mit_proben)
 
     # Schritt 4: Sortierte Proben ausgeben
+    ausgabe_proben(liste_mit_proben_sortiert)
 
     # Schritt 5: Visualisierung der Dichteverteilung
 
