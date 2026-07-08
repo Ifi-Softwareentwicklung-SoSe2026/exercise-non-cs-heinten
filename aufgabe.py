@@ -52,12 +52,12 @@ def bubble_sort(proben):
         for index, probe in enumerate(proben):
 
             # Skip last entry
-            if index < (len(proben) - 2):
+            if index < (len(proben) - 1):
 
                 density_0 = proben[index][2]
                 density_1 = proben[index+1][2]
 
-                if density_0 < density_1:
+                if density_0 > density_1:
 
                     proben[index], proben[index+1] = proben[index+1], proben[index]
 
@@ -98,6 +98,8 @@ def main():
 
     # Schritt 4: Sortierte Proben ausgeben
     ausgabe_proben(liste_mit_proben_sortiert)
+
+
 
     # Schritt 5: Visualisierung der Dichteverteilung
 
