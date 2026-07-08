@@ -99,6 +99,8 @@ def main():
     # Schritt 4: Sortierte Proben ausgeben
     ausgabe_proben(liste_mit_proben_sortiert)
 
+
+
     # Schritt 5: Visualisierung der Dichteverteilung
 
     # Schritt 6: Interaktive Abfrage der Dichte
