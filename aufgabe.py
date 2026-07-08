@@ -33,13 +33,9 @@ def initialisiere_proben():
 
 def berechne_durchschnittliche_dichte(proben):
 
-    sum = 0
+    mittlere_dichte = np.mean(proben)
 
-    for probe in proben:
-
-        sum += probe[2]
-
-    return sum/len(proben)
+    return mittlere_dichte
 
 
 def main():
@@ -47,8 +43,12 @@ def main():
     # Schritt 1: Dateninitialisierung
     liste_mit_proben = initialisiere_proben()
 
+    # Numpy array extrahieren mit Dichten
+    dichte_proben = np.array([probe[2] for probe in liste_mit_proben])
+
     # Schritt 2: Durchschnittliche Dichte berechnen
-    mittlere_dicte = berechne_durchschnittliche_dichte(liste_mit_proben)
+    mittlere_dicte = berechne_durchschnittliche_dichte(dichte_proben)
+    print(f"Die mittlere Dichte beträgt {mittlere_dicte:.2f} kg/m3")
 
     # Schritt 3: Bubble Sort anwenden
 
@@ -57,6 +57,7 @@ def main():
     # Schritt 5: Visualisierung der Dichteverteilung
 
     # Schritt 6: Interaktive Abfrage der Dichte
+
 
 if __name__ == "__main__":
     main()
